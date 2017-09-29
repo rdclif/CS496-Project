@@ -1,1 +1,1 @@
-GCloud Class Project web project using FLASK. Includes RESTful APIs, and OAUTH. 
+GCloud Class Project web project using FLASK. Includes RESTful APIs, ndb, and OAUTH. 
