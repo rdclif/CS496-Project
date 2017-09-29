@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <title>Robert Clifton - CS 496</title>
+</head>
+<body>
+    <div class="container">
+        <div class="topTitle" id="myTopTitle">
+            <p>Robert Clifton - CS 496</p>
+        </div>
+        <div>
+            <ul class="topnav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/oAuthReq">OAuth 2.0</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/">Contact</a></li>
+            </ul>
+        </div>
+        <H1>Success!</H1>
+        <h3>Response Data:</h3>
+        <div>
+            <ul>
+                <li>Name: {{data.fname}} {{data.lname}} </li>
+                <li>Is Google Plus User: {{data.gplus}}</li>
+                {% if data.gplus=='True'  %}
+                <li><a href="{{data.link}}">Google Link</a> </li>
+                {% else %}
+                <li>No Google Link</li>
+                {% endif %}
+                <li>State: {{data.state}} </li>
+            </ul>
+        </div>
+        <div>
+            {{data.resp}}
+        </div>
+    </div>
+</body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</html>

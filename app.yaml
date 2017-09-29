@@ -1,0 +1,19 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+#[START env]
+env_variables:
+    CLOUD_STORAGE_BUCKET: r-clifton
+#[END env]
+
+# [START handlers]
+handlers:
+- url: /static
+  static_dir: static
+  application_readable: true
+- url: /.*
+  script: main.app
+- url: /blobstore.*
+  script: blobstore.app
+# [END handlers]

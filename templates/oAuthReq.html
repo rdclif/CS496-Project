@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <title>Robert Clifton</title>
+</head>
+<body>
+    <div class="container">
+        <div class="topTitle" id="myTopTitle">
+            <p>Robert D. Clifton</p>
+        </div>
+        <div>
+            <ul class="topnav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/oAuthReq">OAuth 2.0</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            {% if data==None %}
+            <a href="/oauth"><img class="img-responsive" src="{{url_for('static', filename='btn_google_signin_dark_normal_web@2x.png')}}"></a>
+            {% else %}
+            <ul>
+                <li>Hello!</li>
+                <li>User: {{data}}</li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</html>

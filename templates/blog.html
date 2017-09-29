@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <title>Robert Clifton - Blog</title>
+</head>
+<body>
+    <div class="container">
+        <div class="topTitle" id="myTopTitle">
+            <p>Robert D. Clifton</p>
+        </div>
+        <div>
+            <ul class="topnav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/oAuthReq">OAuth 2.0</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+            {% for post in data.posts %}
+                <div>
+                    <div class="postTitle">
+                        <p>{{post.title}}</p>
+                    </div>
+                    <div div class="row">
+                        <div class="col-md-6">{{post.post}}</div>
+                        <div class="col-md-6">
+                            <img class="img-responsive" src="{{post.imageURL}}">
+                        </div>
+                    </div>
+                </div>
+                <br>
+            {% else %}
+                <h2>So much empty...</h2>
+            {% endfor %}
+        <br>
+        <div>
+            {% if data['admin']==True %}
+                <form action="/post_update" method="post" enctype="multipart/form-data">
+                    <fieldset>
+                        <legend>Blog Post:</legend>
+                        Title:<br>
+                        <input type="text" name="title" value=""><br>
+                        Post:<br>
+                        <textarea rows="5" cols="80" name="post"></textarea><br>
+                        Image File:<br>
+                        <input type="file" name="image" accept="image/*"><br><br>
+                        <input type="submit" value="Submit">
+                    </fieldset>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</html>
